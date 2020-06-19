@@ -16,13 +16,16 @@
             <tr>
                 <th>ID</th>
                 <th>NAME</th>
+                <th>PASSWORD</th>
                 <th>PROVINCE</th>
-
+                <th>ROLE</th>
             </tr>
             <tr th:each="customer : ${customers}">
                 <td th:text="${customer.id}"></td>
-                <td th:text="${customer.name}"></td>
+                <td th:text="${customer.username}"></td>
+                <td th:text="${customer.password}"></td>
                 <td th:text="${customer.province.name}"></td>
+                <td th:text="${customer.getRole().getAuthority()}"></td>
             </tr>
         </table>
     </div>

@@ -5,26 +5,43 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "customer")
 public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+
+    private String username;
+
+    private String password;
+
+
+
     @ManyToOne
     private Province province;
+
+    @ManyToOne
+    private AppRole role;
 
     public Customer() {
     }
 
-    public Customer(Long id, String name, Province address) {
+    public Customer(Long id, String username, String password, Province province, AppRole role) {
         this.id = id;
-        this.name = name;
-        this.province = address;
+        this.username = username;
+        this.password = password;
+        this.province = province;
+        this.role = role;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Long getId() {
@@ -35,12 +52,12 @@ public class Customer {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String name) {
+        this.username = name;
     }
 
     public Province getProvince() {
@@ -49,5 +66,13 @@ public class Customer {
 
     public void setProvince(Province province) {
         this.province = province;
+    }
+
+    public AppRole getRole() {
+        return role;
+    }
+
+    public void setRole(AppRole role) {
+        this.role = role;
     }
 }

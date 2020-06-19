@@ -18,13 +18,25 @@
                 <input type="hidden" th:field="*{id}">
                 <div>
                     <p>Name</p>
-                    <input type="text" th:field="*{name}">
+                    <input type="text" th:field="*{username}">
+                </div>
+                <div>
+                    <p>Password</p>
+                    <input type="text" th:field="*{password}">
                 </div>
                 <div>
                     <p>Province:</p>
                     <p>
                         <select th:field="*{province}">
                             <option th:each="p : ${provinces}" th:value="${p.id}" th:text="${p.name}"></option>
+                        </select>
+                    </p>
+                </div>
+                <div>
+                    <p>Role:</p>
+                    <p>
+                        <select th:field="*{role}">
+                            <option th:each="r : ${roles}" th:value="${r.id}" th:text="${r.name}"></option>
                         </select>
                     </p>
                 </div>

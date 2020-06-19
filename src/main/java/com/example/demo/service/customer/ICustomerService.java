@@ -4,4 +4,5 @@ import com.example.demo.model.Customer;
 import com.example.demo.service.IService;
 
 public interface ICustomerService extends IService<Customer> {
+    Customer getCustomerByUsername(String userName);
 }

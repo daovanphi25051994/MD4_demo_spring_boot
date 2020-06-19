@@ -9,12 +9,12 @@
 </head>
 <body>
 <div>
-    <div><a th:href="@{/}">Home</a></div>
+    <div><a href="/">Home</a></div>
     <div>
         <a th:href="@{/provinces}">Back list province</a>
     </div>
     <div>
-        <form th:action="@{/province/provinces}" method="post" th:object="${province}">
+        <form action="#" th:action="@{/province/provinces}" method="post" th:object="${province}">
             <input type="hidden" th:field="*{id}">
             <div>
                 <p>Name</p>

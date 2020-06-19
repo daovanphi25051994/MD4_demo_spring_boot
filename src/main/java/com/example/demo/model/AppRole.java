@@ -1,34 +1,30 @@
 package com.example.demo.model;
 
-import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import java.util.List;
 
 @Entity
-public class Province {
-
+public class AppRole implements GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
 
-    @OneToMany(targetEntity = Customer.class)
-    private List<Customer> customers;
-
-    public Province() {
+    @Override
+    public String getAuthority() {
+        return this.name;
     }
 
-    public Province(Long id, String name, List<Customer> customers) {
+    public AppRole() {
+    }
+
+    public AppRole(Long id, String name) {
         this.id = id;
         this.name = name;
-        this.customers = customers;
     }
 
     public Long getId() {
@@ -45,13 +41,5 @@ public class Province {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List<Customer> getCustomers() {
-        return customers;
-    }
-
-    public void setCustomers(List<Customer> customers) {
-        this.customers = customers;
     }
 }
